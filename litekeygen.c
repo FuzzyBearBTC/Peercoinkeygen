@@ -220,7 +220,8 @@ int pubkey_to_address(char **address, unsigned char *pubkey, int keylen)
 	RIPEMD160(hash, ret, tmp1);
 	
 	// 0x30 version byte for Litecoin main network
-	tmp2[0] = 0x30;
+	// 0x37 version byte for Peercoin main network
+	tmp2[0] = 0x37;
 	memcpy(tmp2 + 1, tmp1, RIPEMD160_DIGEST_LENGTH);
 	
 	EVP_DigestInit(&ctx, EVP_sha256());
